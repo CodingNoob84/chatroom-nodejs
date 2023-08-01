@@ -8,7 +8,9 @@ const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
 console.log("hello");
-const socket = io();
+const socket = io({
+  transports: ["websocket"],
+});
 
 socket.on("message", (message) => {
   console.log(message);
